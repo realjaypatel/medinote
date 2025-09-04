@@ -1,18 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-<h4>Patient Profile</h4>
-<p><strong>Name:</strong> {{ patient.name }}</p>
-<p><strong>Age:</strong> {{ patient.age }}</p>
-<p><strong>Phone:</strong> {{ patient.phone }}</p>
+<div class="container-fluid">
+  <div class="doc-page mx-auto p-4 bg-white rounded shadow-sm" style="max-width: 900px;">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+      <h2 class="fw-bold">{{ patient.name }}</h2>
+      <div>
+        <a href="#" class="btn btn-outline-secondary btn-sm">Edit</a>
+        <a href="#" class="btn btn-outline-danger btn-sm">Delete</a>
+      </div>
+    </div>
 
-<h5 class="mt-4">Reports</h5>
-<ul>
-  {% for report in reports %}
-  <li>
-    <a href="{{ url_for('report_detail', report_id=report.id) }}">
-      {{ report.title }}
-    </a>
-  </li>
-  {% endfor %}
-</ul>
+    <div class="text-muted mb-4 small">
+      Patient ID: {{ patient.id }} <br>
+      Age: {{ patient.age }} | Phone: {{ patient.phone }}
+      {% if patient.gender %}| Gender: {{ patient.gender }}{% endif %}
+      <br>
+      Last Updated: {{ last_updated }}
+    </div>
+
+    <h5 class="fw-bold mt-4">Reports</h5>
+    {% if reports %}
+      <ul class="list-group">
+        {% for report in reports %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <a href="{{ url_for('report_detail', report_id=report.id) }}">
+            {{ report.title }}
+          </a>
+          <span class="text-muted small">{{ report.created_at }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-muted">No reports available for this patient.</p>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}

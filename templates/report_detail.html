@@ -1,10 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<h4>{{ report.title }}</h4>
-<p><strong>Patient:</strong> 
-  <a href="{{ url_for('patient_profile', patient_id=patient.id) }}">
-    {{ patient.name }}
-  </a> (Age: {{ patient.age }}, Phone: {{ patient.phone }})
-</p>
-<p>{{ report.report_text }}</p>
+<div class="container-fluid">
+  <div class="doc-page mx-auto p-4 bg-white rounded shadow-sm" style="max-width: 900px;">
+    <div class="d-flex justify-content-between align-items-start mb-3">
+      <h2 class="fw-bold">{{ report.title }}</h2>
+      <div>
+        <a href="#" class="btn btn-outline-secondary btn-sm">Edit</a>
+        <a href="#" class="btn btn-outline-danger btn-sm">Delete</a>
+      </div>
+    </div>
+
+    <div class="text-muted mb-4 small">
+      Patient:
+      <a href="{{ url_for('patient_profile', patient_id=patient.id) }}">
+        {{ patient.name }} ({{ patient.age }}, {{ patient.phone }})
+      </a> <br>
+      Created: {{ report.created_at }} | Last Updated: {{ report.updated_at }}
+    </div>
+
+    <div class="report-content">
+      <h6 class="fw-bold">Summary</h6>
+      <p>{{ report.report_text }}</p>
+    </div>
+  </div>
+</div>
 {% endblock %}

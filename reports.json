@@ -3,24 +3,22 @@
     "id": 1,
     "patient_id": 1,
     "title": "General Checkup",
-    "report_text": "Patient is in good health. Slightly elevated blood pressure noted."
+    "report_text": "Patient is in good health. Slightly elevated blood pressure noted.",
+    "created_at": "2025-09-01 10:15",
+    "updated_at": "2025-09-01 10:15"
   },
   {
     "id": 2,
     "patient_id": 2,
     "title": "Flu Symptoms",
-    "report_text": "Patient reports fever and body aches for 3 days. Prescribed rest and medication."
+    "report_text": "Patient reports fever and body aches for 3 days. Prescribed rest and medication.",
+    "created_at": "2025-09-02 14:45",
+    "updated_at": "2025-09-02 14:50"
   },
   {
     "id": 3,
-    "patient_id": 3,
-    "title": "Diabetes Follow-up",
-    "report_text": "Blood sugar levels are under control. Continue current medication."
-  },
-  {
-    "id": 4,
     "patient_id": 2,
-    "title": "adsf",
-    "report_text": "asdfasdf"
+    "title": "asdf",
+    "report_text": "asdf"
   }
 ]

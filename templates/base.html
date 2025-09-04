@@ -2,17 +2,107 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>EHR Minimal JSON</title>
+  <title>Minimal EHR</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f5f6f8;
+    }
+    .navbar {
+      background-color: #0052cc;
+    }
+    .navbar-brand, .navbar-nav .nav-link {
+      color: #fff !important;
+    }
+    .sidebar {
+      width: 220px;
+      position: fixed;
+      top: 56px;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      background: #ffffff;
+      border-right: 1px solid #e0e0e0;
+    }
+    .content {
+      margin-left: 240px;
+      padding: 2rem;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .content {
+        margin-left: 0;
+      }
+    }
+    .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    }
+    .card-title a {
+      text-decoration: none;
+      color: #0052cc;
+    }
+    .card-title a:hover {
+      text-decoration: underline;
+    }
+    table {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    }
+    table th {
+      background: #f0f2f5;
+    }
+    .truncate {
+      display: inline-block;
+      max-width: 200px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: bottom;
+    }
+  </style>
 </head>
-<body class="container py-4">
-  <h2 class="mb-4">Minimal EHR (JSON)</h2>
-  <nav class="mb-4">
-    <a href="{{ url_for('index') }}" class="btn btn-secondary btn-sm">Home</a>
-    <a href="{{ url_for('add_patient') }}" class="btn btn-primary btn-sm">Add Patient</a>
-    <a href="{{ url_for('add_report') }}" class="btn btn-success btn-sm">Add Report</a>
-    <a href="{{ url_for('reports') }}" class="btn btn-info btn-sm">View Reports</a>
+<body>
+  <!-- Top Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">Minimal EHR</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('add_patient') }}">Add Patient</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('add_report') }}">Add Report</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ url_for('reports') }}">View Reports</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
-  {% block content %}{% endblock %}
+
+  <!-- Sidebar (desktop only) -->
+  <div class="sidebar d-none d-md-block">
+    <ul class="nav flex-column">
+      <li class="nav-item mb-2"><a class="nav-link" href="{{ url_for('index') }}">🏠 Home</a></li>
+      <li class="nav-item mb-2"><a class="nav-link" href="{{ url_for('add_patient') }}">➕ Add Patient</a></li>
+      <li class="nav-item mb-2"><a class="nav-link" href="{{ url_for('add_report') }}">📝 Add Report</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('reports') }}">📄 View Reports</a></li>
+    </ul>
+  </div>
+
+  <!-- Page Content -->
+  <main class="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

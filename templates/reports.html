@@ -1,28 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-<h4>All Reports</h4>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Patient</th>
-      <th>Age</th>
-      <th>Phone</th>
-      <th>Title</th>
-      <th>Report</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for report in reports %}
-    <tr>
-      <td>{{ report.id }}</td>
-      <td>{{ patients[report.patient_id].name }}</td>
-      <td>{{ patients[report.patient_id].age }}</td>
-      <td>{{ patients[report.patient_id].phone }}</td>
-      <td>{{ report.title }}</td>
-      <td>{{ report.report_text }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<h4 class="mb-3">All Reports</h4>
+<div class="table-responsive">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Patient</th>
+        <th>Report</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for report in reports %}
+      <tr>
+        <td>
+          <a href="{{ url_for('report_detail', report_id=report.id) }}" class="truncate">
+            {{ report.title }}
+          </a>
+        </td>
+        <td>
+          <a href="{{ url_for('patient_profile', patient_id=report.patient_id) }}">
+            {{ patients[report.patient_id].name }} ({{ patients[report.patient_id].age }}, {{ patients[report.patient_id].phone }})
+          </a>
+        </td>
+        <td class="truncate">{{ report.report_text }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endblock %}
