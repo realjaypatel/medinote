@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="POST">
+  <div class="mb-3">
+    <input type="text" class="form-control" name="title" placeholder="Page Title" value="{{ page['title'] if page else '' }}" required>
+  </div>
+  <div class="mb-3">
+    <textarea class="form-control" name="content" placeholder="Page Content" rows="8">{{ page['content'] if page else '' }}</textarea>
+  </div>
+  <button class="btn btn-primary">{{ 'Update' if page else 'Create' }} Page</button>
+</form>
+<a href="{{ url_for('space', space_id=page['space_id']) if page else url_for('index') }}" class="btn btn-secondary mt-2">Cancel</a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Create {{ type }}</h2>
+<form method="POST">
+    {% if type == "Wiki" %}
+        <div class="mb-3">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Content</label>
+            <textarea name="content" class="form-control" rows="5" required></textarea>
+        </div>
+    {% else %}
+        <div class="mb-3">
+            <label>Question</label>
+            <input type="text" name="question" class="form-control" required>
+        </div>
+    {% endif %}
+    <button class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

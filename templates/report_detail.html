@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>{{ report.title }}</h4>
+<p><strong>Patient:</strong> 
+  <a href="{{ url_for('patient_profile', patient_id=patient.id) }}">
+    {{ patient.name }}
+  </a> (Age: {{ patient.age }}, Phone: {{ patient.phone }})
+</p>
+<p>{{ report.report_text }}</p>
+{% endblock %}

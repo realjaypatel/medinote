@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Spaces</h1>
+<ul class="list-group mb-4">
+    {% for space in spaces %}
+        <li class="list-group-item">
+            <a href="{{ url_for('space', space_name=space) }}">{{ space }}</a>
+        </li>
+    {% else %}
+        <li class="list-group-item">No spaces yet.</li>
+    {% endfor %}
+</ul>
+
+<form method="POST" action="{{ url_for('add_space') }}" class="row g-2">
+    <div class="col-auto">
+        <input type="text" name="space_name" class="form-control" placeholder="New Space Name" required>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-success">Add Space</button>
+    </div>
+</form>
+{% endblock %}

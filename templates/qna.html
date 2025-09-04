@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Q&A Posts</h2>
+<ul>
+    {% for post in posts %}
+        <li>
+            <a href="{{ url_for('question', id=post._id) }}"><strong>{{ post.question }}</strong></a>
+            - {{ post.answers|length }} answers
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

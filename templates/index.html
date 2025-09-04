@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>Recent Reports</h4>
+<div class="row">
+  {% for report in reports %}
+  <div class="col-md-4 mb-3">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">
+          <a href="{{ url_for('report_detail', report_id=report.id) }}">
+            {{ report.title }}
+          </a>
+        </h5>
+        <p class="card-text text-truncate">{{ report.report_text }}</p>
+      </div>
+      <div class="card-footer">
+        Patient:
+        <a href="{{ url_for('patient_profile', patient_id=report.patient_id) }}">
+          {{ patients[report.patient_id].name }}
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

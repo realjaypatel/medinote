@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ post.question }}</h2>
+
+<h4>Answers</h4>
+<ul>
+    {% for answer in post.answers %}
+        <li>{{ answer.text }} - Votes: {{ answer.votes }} 
+            <a href="{{ url_for('upvote_answer', qid=post._id, aid=loop.index0) }}">Upvote</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h4 class="mt-4">Add Your Answer</h4>
+<form method="POST">
+    <div class="mb-3">
+        <textarea name="answer" class="form-control" rows="3" required></textarea>
+    </div>
+    <button class="btn btn-success">Submit Answer</button>
+</form>
+{% endblock %}

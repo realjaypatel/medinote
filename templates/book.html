@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>{{ book['title'] }}</h3>
+<ul class="list-group mb-3">
+  {% for page in pages %}
+    <li class="list-group-item">
+      <a href="{{ url_for('page', book_id=book['_id'], page_id=page['_id']) }}">{{ page['title'] }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+<a href="{{ url_for('add_page', book_id=book['_id']) }}" class="btn btn-success mb-3">Add Page</a>
+<a href="{{ url_for('index') }}" class="btn btn-secondary mb-3">Back to Books</a>
+{% endblock %}

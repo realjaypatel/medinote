@@ -1,0 +1,22 @@
+{
+  "spaces": {
+    "Engineering": {
+      "pages": {
+        "Architecture Overview": "This page describes the system architecture, including microservices and data flow diagrams.",
+        "API Documentation": "All internal and external APIs are documented here with endpoints, methods, and examples."
+      }
+    },
+    "Marketing": {
+      "pages": {
+        "Campaign Plan Q3": "Q3 marketing campaigns, timelines, and KPIs.",
+        "Brand Guidelines": "Company logo, color palette, typography, and usage rules."
+      }
+    },
+    "HR": {
+      "pages": {
+        "Leave Policy": "Details of leave types, accrual, and application procedures.",
+        "Onboarding Checklist": "Steps for onboarding new employees, including access to systems and training."
+      }
+    }
+  }
+}

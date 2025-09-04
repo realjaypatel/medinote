@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Add New Space</h3>
+
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Space Name</label>
+    <input type="text" class="form-control" name="name" placeholder="Enter space name" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea class="form-control" name="description" placeholder="Enter space description" rows="4"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Create Space</button>
+  <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

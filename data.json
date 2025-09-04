@@ -1,0 +1,28 @@
+{
+    "pages": [
+        {
+            "id": 1,
+            "title": "Project Overview",
+            "content": "This is the main documentation."
+        },
+        {
+            "id": 2,
+            "title": "asdf",
+            "content": "asdf"
+        }
+    ],
+    "tickets": [
+        {
+            "id": 1,
+            "title": "Fix login bug",
+            "description": "User cannot log in with Google",
+            "status": "Todo"
+        },
+        {
+            "id": 2,
+            "title": "new tickit is here",
+            "description": "desc for the tickiting",
+            "status": "Todo"
+        }
+    ]
+}

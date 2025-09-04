@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h4>All Reports</h4>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Patient</th>
+      <th>Age</th>
+      <th>Phone</th>
+      <th>Title</th>
+      <th>Report</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for report in reports %}
+    <tr>
+      <td>{{ report.id }}</td>
+      <td>{{ patients[report.patient_id].name }}</td>
+      <td>{{ patients[report.patient_id].age }}</td>
+      <td>{{ patients[report.patient_id].phone }}</td>
+      <td>{{ report.title }}</td>
+      <td>{{ report.report_text }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

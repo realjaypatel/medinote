@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Space: {{ space_name }}</h1>
+
+<ul class="list-group mb-4">
+    {% for page in pages %}
+        <li class="list-group-item">
+            <a href="{{ url_for('page', space_name=space_name, page_title=page) }}">{{ page }}</a>
+        </li>
+    {% else %}
+        <li class="list-group-item">No pages yet.</li>
+    {% endfor %}
+</ul>
+
+<form method="POST" action="{{ url_for('add_page', space_name=space_name) }}" class="row g-2">
+    <div class="col-6">
+        <input type="text" name="page_title" class="form-control" placeholder="Page Title" required>
+    </div>
+    <div class="col-6">
+        <input type="text" name="page_content" class="form-control" placeholder="Page Content">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Add Page</button>
+    </div>
+</form>
+{% endblock %}
